@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeTodo, updateTodo, getTodo } from "../feature/todoSlice";
+import { todoSliceActions } from "../feature/todoSlice";
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
+
+  const updateTodoHandler = (todo) => {};
 
   return (
     <>
@@ -19,13 +21,13 @@ function Todos() {
             <button
               className="bg-white p-2 text-md"
               onClick={() => {
-                dispatch(getTodo(todo));
+                dispatch(todoSliceActions.saveTodoToExistingTodo(todo));
               }}
             >
               Update
             </button>
             <button
-              onClick={() => dispatch(removeTodo(todo.id))}
+              onClick={() => dispatch(todoSliceActions.removeTodo(todo.id))}
               className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
             >
               <svg

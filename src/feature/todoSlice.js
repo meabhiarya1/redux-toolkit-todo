@@ -21,13 +21,13 @@ export const todoSlice = createSlice({
         return todo.id !== action.payload;
       });
     },
-    getTodo: (state, action) => {
-      const { id, text } = action.payload;
-      const existingTodo = state.todos.find((todo) => todo.id === id);
-      if (existingTodo) {
-        existingTodo.text = text;
-      }
-      state.existingTodo = existingTodo;
+
+    removeGetTodo: (state, action) => {
+      state.existingTodo = null;
+    },
+
+    saveTodoToExistingTodo: (state, action) => {
+      state.existingTodo = action.payload;
     },
     updateTodo: (state, action) => {
       const { id, text } = action.payload;
@@ -37,6 +37,6 @@ export const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, removeTodo, updateTodo, getTodo } = todoSlice.actions;
+export const todoSliceActions = todoSlice.actions;
 
 export default todoSlice.reducer;
