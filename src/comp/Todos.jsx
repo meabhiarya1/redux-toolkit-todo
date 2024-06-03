@@ -6,8 +6,6 @@ function Todos() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
-  const updateTodoHandler = (todo) => {};
-
   return (
     <>
       <div>Todos</div>

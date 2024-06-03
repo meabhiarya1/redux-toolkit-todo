@@ -9,7 +9,7 @@ export const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    addTodo: (state, action) => {
+    addTodo: (state, action) => { 
       const todo = {
         id: nanoid(),
         text: action.payload,
@@ -29,6 +29,7 @@ export const todoSlice = createSlice({
     saveTodoToExistingTodo: (state, action) => {
       state.existingTodo = action.payload;
     },
+
     updateTodo: (state, action) => {
       const { id, text } = action.payload;
       const existingTodoArray = state.todos.filter((todo) => todo.id !== id);
